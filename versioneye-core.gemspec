@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.require_paths    = ["lib"]
   s.authors          = ['Robert Reiz']
   s.email            = "robert.reiz.81@gmail.com"
-  s.homepage         = "http://github.com/versioneye/versioneye-core"
+  s.homepage         = "http://github.com/eacg-gmbh/versioneye-core"
   s.license          = "MIT"
   s.summary          = "Models & Services for VersionEye"
   s.description      = "This project contains the Models and Services for VersionEye"
