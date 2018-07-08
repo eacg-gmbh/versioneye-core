@@ -76,7 +76,8 @@ class VersioneyeCore
 
 
   def init_mongodb
-    puts " - initialize MongoDB for #{Settings.instance.environment}. DB_PORT_27017_TCP_ADDR: #{ENV['DB_PORT_27017_TCP_ADDR']}:#{ENV['DB_PORT_27017_TCP_PORT']}."
+    puts " - initialize MongoDB (old) for #{Settings.instance.environment}. DB_PORT_27017_TCP_ADDR: #{ENV['DB_PORT_27017_TCP_ADDR']}:#{ENV['DB_PORT_27017_TCP_PORT']}."
+    puts " - initialize MongoDB for #{Settings.instance.environment}. DB_URI: #{ENV['DB_URI']}:#{ENV['DB_PORT']}"
     Mongoid.load!("config/mongoid.yml", Settings.instance.environment)
     Mongoid.logger.level = Logger::ERROR
     Mongo::Logger.logger.level = Logger::ERROR

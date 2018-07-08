@@ -10,19 +10,16 @@ ENV LC_CTYPE=en_US.UTF-8
 
 # libfontconfig1 is mandatory for PDFKit
 
-RUN apt-get update; \
-    apt-get install -y libfontconfig1; \
-    apt-get install -y git; \
-    apt-get install -y build-essential; \
-    apt-get install -y supervisor; \
-    gem uninstall -i /usr/local/lib/ruby/gems/2.3.0 bundler -a -x; \
-    gem install bundler --version 1.16.0; \
-    rm -Rf /app; mkdir -p /app; mkdir -p /app/log; mkdir -p /app/pids
+RUN apt-get update && \
+    apt-get install -y libfontconfig1 git build-essential supervisor && \
+    gem uninstall -i /usr/local/lib/ruby/gems/2.3.0 bundler -a -x && \
+    gem install bundler --version 1.16.0 && \
+    rm -rf /app && mkdir -p /app/log && mkdir -p /app/pids
 
 ADD . /app/
 
 WORKDIR /app
 
-RUN bundle update; \
-    apt-get remove --purge --force-yes `apt-mark showauto`; \
-    apt-get clean;
+RUN bundle update && \
+    apt-get remove --purge --force-yes `apt-mark showauto` && \
+    apt-get clean
