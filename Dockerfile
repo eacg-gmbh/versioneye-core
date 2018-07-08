@@ -22,4 +22,4 @@ WORKDIR /app
 
 RUN bundle update && \
     apt-get remove --purge --force-yes `apt-mark showauto` && \
-    apt-get clean
+    apt-get clean -y
