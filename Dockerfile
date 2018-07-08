@@ -21,5 +21,5 @@ ADD . /app/
 WORKDIR /app
 
 RUN bundle update && \
-    apt-get remove --purge --force-yes `apt-mark showauto` && \
-    apt-get clean -y
+    apt-get remove --purge --force-yes `apt-mark showauto` ; \
+    apt-get clean --force-yes
