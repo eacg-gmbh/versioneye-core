@@ -13,7 +13,7 @@ ENV LC_CTYPE=en_US.UTF-8
 RUN apt-get update && \
     apt-get install -y libfontconfig1 git build-essential supervisor && \
     gem uninstall -i /usr/local/lib/ruby/gems/2.3.0 bundler -a -x && \
-    gem install bundler --version 1.16.0 && \
+    gem install bundler --version 1.16.2 && \
     rm -rf /app && mkdir -p /app/log && mkdir -p /app/pids
 
 ADD . /app/
