@@ -14,7 +14,7 @@ module Versioneye
       environment = 'development' if environment.to_s.empty?
       filename = "log/#{environment}_tasks.log"
 
-      @logger = ActiveSupport::Logger.new(filename, 10, 10485760) # 10485760 = 10 MB
+      @logger = ActiveSupport::Logger.new(STDOUT) # 10485760 = 10 MB
       @logger.formatter = Versioneye::Formatter.new
     end
 
@@ -35,7 +35,7 @@ module Versioneye
         environment = 'development' if environment.to_s.empty?
         filename = "log/#{environment}_tasks.log"
       end
-      @logger = ActiveSupport::Logger.new(filename, count, size)
+      @logger = ActiveSupport::Logger.new(STDOUT)
       @logger.formatter = Versioneye::Formatter.new
     end
 
