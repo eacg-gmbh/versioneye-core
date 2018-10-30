@@ -3,12 +3,13 @@ class ProductService < Versioneye::Service
 
   # Languages have to be an array of strings.
   def self.search(q, group_id = nil, languages = nil, page_count = 1)
+    ## No elastic search!!
     env = Settings.instance.environment
-    if !env.to_s.eql?("enterprise")
-      return MongoProduct.find_by(q, '', group_id, languages, 300)
-    else
-      return EsProduct.search(q, group_id, languages, page_count)
-    end
+    # if !env.to_s.eql?("enterprise")
+    return MongoProduct.find_by(q, '', group_id, languages, 300)
+    # else
+    #  return EsProduct.search(q, group_id, languages, page_count)
+    # end
   rescue => e
     log.error e.message
     log.error e.backtrace.join("\n")
